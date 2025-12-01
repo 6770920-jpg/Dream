@@ -1,1 +1,58 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0e0e0e;
+  color: #cfcfcf;
+}
 
+header {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+h1 {
+  font-size: 48px;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px;
+}
+
+.gallery img {
+  width: 100%;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.gallery img:hover {
+  opacity: 0.7;
+}
+
+.about {
+  max-width: 800px;
+  margin: 120px auto;
+  padding: 0 20px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+footer {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 14px;
+}
+
+footer a {
+  color: #cfcfcf;
+  text-decoration: none;
+}
