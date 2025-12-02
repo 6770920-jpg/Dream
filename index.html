@@ -9,34 +9,82 @@
 
 <body>
 
-<header>
-  <h1>DREAM</h1>
-  <p class="subtitle">An online art gallery exploring mood, silence, and form.</p>
+<header class="site-header">
+  <div class="header-inner">
+    <h1 class="logo">DREAM</h1>
+    <p class="subtitle">Online art gallery exploring mood, silence, and form.</p>
+  </div>
 </header>
 
-<section class="gallery">
-  <img src="images/IMG_8167.jpeg" alt="Artwork">
-  <img src="images/IMG_8348.jpeg" alt="Artwork">
-  <img src="images/IMG_8356.jpeg" alt="Artwork">
-  <img src="images/IMG_8364.jpeg" alt="Artwork">
-  <img src="images/IMG_8371.jpeg" alt="Artwork">
-  <img src="images/IMG_8385.jpeg" alt="Artwork">
-  <img src="images/IMG_8392.jpeg" alt="Artwork">
-  <img src="images/IMG_8602.jpeg" alt="Artwork">
-  <img src="images/IMG_8608.jpeg" alt="Artwork">
-</section>
+<main>
+  <!-- Блок "about" — можно потом переписать текст под себя -->
+  <section class="about">
+    <h2>About the artist</h2>
+    <p>
+      This collection focuses on quiet emotions, soft light, and the spaces
+      between movement and stillness. Each piece invites you to slow down,
+      breathe, and stay with the image a little longer.
+    </p>
+  </section>
 
-<section class="about">
-  <p>
-    Dream is a curated online gallery presenting works by independent contemporary artists.
-    The focus is on atmosphere, emotional presence, and visual restraint.
-  </p>
-</section>
+  <!-- Галерея -->
+  <section class="gallery-section">
+    <h2>Gallery</h2>
 
-<footer>
-  <p>Private inquiries:<br>
-  <a href="mailto:contact@dream.gallery">contact@dream.gallery</a></p>
+    <div class="gallery">
+      <a href="images/IMG_8167.jpeg" class="gallery-item" target="_blank">
+        <img src="images/IMG_8167.jpeg" alt="Artwork 1">
+      </a>
+      <a href="images/IMG_8348.jpeg" class="gallery-item" target="_blank">
+        <img src="images/IMG_8348.jpeg" alt="Artwork 2">
+      </a>
+      <a href="images/IMG_8356.jpeg" class="gallery-item" target="_blank">
+        <img src="images/IMG_8356.jpeg" alt="Artwork 3">
+      </a>
+      <a href="images/IMG_8364.jpeg" class="gallery-item" target="_blank">
+        <img src="images/IMG_8364.jpeg" alt="Artwork 4">
+      </a>
+      <a href="images/IMG_8371.jpeg" class="gallery-item" target="_blank">
+        <img src="images/IMG_8371.jpeg" alt="Artwork 5">
+      </a>
+      <a href="images/IMG_8385.jpeg" class="gallery-item" target="_blank">
+        <img src="images/IMG_8385.jpeg" alt="Artwork 6">
+      </a>
+      <a href="images/IMG_8392.jpeg" class="gallery-item" target="_blank">
+        <img src="images/IMG_8392.jpeg" alt="Artwork 7">
+      </a>
+      <a href="images/IMG_8602.jpeg" class="gallery-item" target="_blank">
+        <img src="images/IMG_8602.jpeg" alt="Artwork 8">
+      </a>
+      <a href="images/IMG_8608.jpeg" class="gallery-item" target="_blank">
+        <img src="images/IMG_8608.jpeg" alt="Artwork 9">
+       </a>
+    </div>
+  </section>
+
+  <!-- Контакты -->
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>
+      For inquiries about original works, prints, or exhibitions, please get in touch:
+    </p>
+    <p class="contact-links">
+      <a href="mailto:yourmail@example.com">yourmail@example.com</a>
+      <!-- Можно добавить Instagram / сайт -->
+      <!-- <span>·</span>
+      <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a> -->
+    </p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>© <span id="year"></span> DREAM Studio.</p>
 </footer>
+
+<script>
+  // Автоматически подставляем текущий год в футер
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>
