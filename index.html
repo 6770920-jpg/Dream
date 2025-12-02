@@ -6,187 +6,193 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<div class="lightbox" id="lightbox">
-  <div class="lightbox-inner">
-    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
-    <img id="lightbox-image" alt="">
-    <p id="lightbox-caption"></p>
-  </div>
-</div>
-
-<script>
-  // Лайтбокс
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-image');
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const closeBtn = document.getElementById('lightbox-close');
-
-  const items = document.querySelectorAll('.gallery-item');
-
-  items.forEach(item => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
-      const img = item.querySelector('img');
-      const src = item.getAttribute('href');
-      const title = item.getAttribute('data-title') || img.alt || '';
-
-      lightboxImg.src = src;
-      lightboxImg.alt = title;
-      lightboxCaption.textContent = title;
-
-      lightbox.classList.add('is-open');
-      document.body.style.overflow = 'hidden'; // блокируем прокрутку фона
-    });
-  });
-
-  function closeLightbox() {
-    lightbox.classList.remove('is-open');
-    document.body.style.overflow = '';
-    lightboxImg.src = '';
-  }
-
-  closeBtn.addEventListener('click', closeLightbox);
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeLightbox();
-    }
-  });
-
-  // Скрипт года в футере (как было)
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
-</body>
-</html>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <h1 class="logo">DREAM</h1>
-    <p class="subtitle">Online art gallery exploring mood, silence, and form.</p>
-  </div>
-</header>
-
-<main>
-  <!-- Блок "about" — можно потом переписать текст под себя -->
-  <section class="about">
-    <h2>About the artist</h2>
-    <p>
-      This collection focuses on quiet emotions, soft light, and the spaces
-      between movement and stillness. Each piece invites you to slow down,
-      breathe, and stay with the image a little longer.
-    </p>
-  </section>
-
-  <!-- Галерея -->
-  <section class="gallery-section">
-    <h2>Gallery</h2>
-
-    <div class="gallery">
-<figure class="gallery-item" data-title="Large Venice / Trattoria Painting – Oil on Canvas, Vintage Frame and COA. Signed. 56x44">
-  <a href="images/IMG_8167.jpeg"> 
-  <img src="images/IMG_8167.jpeg" alt="Large Venice / Trattoria Painting – Oil on Canvas, Vintage Frame and COA. Signed. 56x44">
-  </a>
-  <figcaption class="caption">
-    Large “Venice / Trattoria” Painting – Oil on Canvas, Vintage Frame and COA. Signed. 56x44”
-  </figcaption>
-</figure>
-<figure class="gallery-item" data-title="Silent Room">
-  <a href="images/IMG_8348.jpeg">
-    <img src="images/IMG_8348.jpeg" alt="Silent Room">
-  </a>
-  <figcaption class="caption">
-Large Vintage Original Still Life Painting – Signed “Kenneth” – Framed Floral Artwork 34”x46” Offer
-  </figcaption>
-</figure>
-      <figure class="gallery-item" data-title="Silent Room">
-  <a href="images/IMG_8356.jpeg">
-    <img src="images/IMG_8356.jpeg" alt="Silent Room">
-  </a>
-  <figcaption class="caption">
-Large Hand-Painted Impressionist Painting – Conservatory with Grand Piano, Size: 37 x 47 “.
-  </figcaption>
-</figure>
-      <figure class="gallery-item" data-title="Silent Room">
-  <a href="images/IMG_8364.jpeg">
-    <img src="images/IMG_8364.jpeg" alt="Silent Room">
-  </a>
-  <figcaption class="caption">
-Glynda Turley “Georgia Sweet” Signed & Numbered Limited Edition – COA. 
-  </figcaption>
-</figure>
-     <figure class="gallery-item" data-title="Silent Room">
-  <a href="images/IMG_8371.jpeg">
-    <img src="images/IMG_8371.jpeg" alt="Silent Room">
-  </a>
-  <figcaption class="caption">
-John Matthew Moore Signed Limited Edition Botanical Tulip – 73/295.
-  </figcaption>
-</figure>
-<figure class="gallery-item" data-title="Silent Room">
-  <a href="images/IMG_8385.jpeg">
-    <img src="images/IMG_8385.jpeg" alt="Silent Room">
-  </a>
-  <figcaption class="caption">
-Vintage Original Oil Painting – Rustic Cabin Landscape – Framed, signed – 16.8” x 20.5” 
-  </figcaption>
-</figure>
-<figure class="gallery-item" data-title="Silent Room">
-  <a href="images/IMG_8392.jpeg">
-    <img src="images/IMG_8392.jpeg" alt="Silent Room">
-  </a>
-  <figcaption class="caption">
-Impressionist Style Garden Scene Oil Painting – Women in White – Ornate Gilt Frame.
-  </figcaption>
-</figure>
-      <figure class="gallery-item" data-title="Silent Room">
-  <a href="images/IMG_8602.jpeg">
-    <img src="images/IMG_8602.jpeg" alt="Silent Room">
-  </a>
-  <figcaption class="caption">
-Light on the Wall
-  </figcaption>
-</figure>
-     <figure class="gallery-item" data-title="Silent Room">
-  <a href="images/IMG_8608.jpeg">
-    <img src="images/IMG_8608.jpeg" alt="Silent Room">
-  </a>
-  <figcaption class="caption">
-Where the Day Stopped
-  </figcaption>
-</figure>
+  <!-- Лайтбокс ДОЛЖЕН быть внутри body -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+      <img id="lightbox-image" alt="">
+      <p id="lightbox-caption"></p>
     </div>
-  </section>
+  </div>
 
-  <!-- Контакты -->
-  <section class="contact">
-    <h2>Contact</h2>
-    <p>
-      For inquiries about original works, prints, or exhibitions, please get in touch:
-    </p>
-    <p class="contact-links">
-      <a href="mailto:6770920@gmail.com">6770920@gmail.com</a>
-      <!-- Можно добавить Instagram / сайт -->
-      <!-- <span>·</span>
-      <a href="https://instagram.com/yourprofile" target="_blank">Instagram</a> -->
-    </p>
-  </section>
-</main>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">DREAM</h1>
+      <p class="subtitle">Online art gallery exploring mood, silence, and form.</p>
+    </div>
+  </header>
 
-<footer class="site-footer">
-  <p>© <span id="year"></span> DREAM Studio.</p>
-</footer>
+  <main>
+    <!-- About -->
+    <section class="about">
+      <h2>About the artist</h2>
+      <p>
+        This collection focuses on quiet emotions, soft light, and the spaces
+        between movement and stillness. Each piece invites you to slow down,
+        breathe, and stay with the image a little longer.
+      </p>
+    </section>
 
-<script>
-  // Автоматически подставляем текущий год в футер
-  document.getElementById('year').textContent = new Date().getFullYear();
-</script>
+    <!-- Галерея -->
+    <section class="gallery-section">
+      <h2>Gallery</h2>
 
+      <div class="gallery">
+        <figure class="gallery-item" data-title="Large Venice / Trattoria Painting – Oil on Canvas, Vintage Frame and COA. Signed. 56x44">
+          <a href="images/IMG_8167.jpeg">
+            <img src="images/IMG_8167.jpeg" alt="Large Venice / Trattoria Painting – Oil on Canvas, Vintage Frame and COA. Signed. 56x44">
+          </a>
+          <figcaption class="caption">
+            Large “Venice / Trattoria” Painting – Oil on Canvas, Vintage Frame and COA. Signed. 56x44”
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-title="Silent Room">
+          <a href="images/IMG_8348.jpeg">
+            <img src="images/IMG_8348.jpeg" alt="Silent Room">
+          </a>
+          <figcaption class="caption">
+            Large Vintage Original Still Life Painting – Signed “Kenneth” – Framed Floral Artwork 34”x46” Offer
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-title="Silent Room">
+          <a href="images/IMG_8356.jpeg">
+            <img src="images/IMG_8356.jpeg" alt="Silent Room">
+          </a>
+          <figcaption class="caption">
+            Large Hand-Painted Impressionist Painting – Conservatory with Grand Piano, Size: 37 x 47 “.
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-title="Silent Room">
+          <a href="images/IMG_8364.jpeg">
+            <img src="images/IMG_8364.jpeg" alt="Silent Room">
+          </a>
+          <figcaption class="caption">
+            Glynda Turley “Georgia Sweet” Signed & Numbered Limited Edition – COA.
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-title="Silent Room">
+          <a href="images/IMG_8371.jpeg">
+            <img src="images/IMG_8371.jpeg" alt="Silent Room">
+          </a>
+          <figcaption class="caption">
+            John Matthew Moore Signed Limited Edition Botanical Tulip – 73/295.
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-title="Silent Room">
+          <a href="images/IMG_8385.jpeg">
+            <img src="images/IMG_8385.jpeg" alt="Silent Room">
+          </a>
+          <figcaption class="caption">
+            Vintage Original Oil Painting – Rustic Cabin Landscape – Framed, signed – 16.8” x 20.5”
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-title="Silent Room">
+          <a href="images/IMG_8392.jpeg">
+            <img src="images/IMG_8392.jpeg" alt="Silent Room">
+          </a>
+          <figcaption class="caption">
+            Impressionist Style Garden Scene Oil Painting – Women in White – Ornate Gilt Frame.
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-title="Light on the Wall">
+          <a href="images/IMG_8602.jpeg">
+            <img src="images/IMG_8602.jpeg" alt="Light on the Wall">
+          </a>
+          <figcaption class="caption">
+            Light on the Wall
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-title="Where the Day Stopped">
+          <a href="images/IMG_8608.jpeg">
+            <img src="images/IMG_8608.jpeg" alt="Where the Day Stopped">
+          </a>
+          <figcaption class="caption">
+            Where the Day Stopped
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>
+        For inquiries about original works, prints, or exhibitions, please get in touch:
+      </p>
+      <p class="contact-links">
+        <a href="mailto:6770920@gmail.com">6770920@gmail.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> DREAM Studio.</p>
+  </footer>
+
+  <!-- СКРИПТ СТАВИМ В КОНЦЕ, когда всё уже в DOM -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Лайтбокс
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const closeBtn = document.getElementById('lightbox-close');
+
+      const items = document.querySelectorAll('.gallery-item');
+
+      items.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const img = item.querySelector('img');
+          const link = item.querySelector('a');
+          const src = link.getAttribute('href');              // ✅ берём href у <a>
+          const title = item.getAttribute('data-title') || img.alt || '';
+
+          lightboxImg.src = src;
+          lightboxImg.alt = title;
+          lightboxCaption.textContent = title;
+
+          lightbox.classList.add('is-open');
+          document.body.style.overflow = 'hidden'; // блокируем прокрутку фона
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+        lightboxImg.src = '';
+      }
+
+      closeBtn.addEventListener('click', closeLightbox);
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeLightbox();
+        }
+      });
+
+      // Год в футере
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
+    });
+  </script>
 </body>
 </html>
