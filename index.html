@@ -6,7 +6,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/style.css">
 </head>
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-inner">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightbox-image" alt="">
+    <p id="lightbox-caption"></p>
+  </div>
+</div>
 
+<script>
+  // Лайтбокс
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-image');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeBtn = document.getElementById('lightbox-close');
+
+  const items = document.querySelectorAll('.gallery-item');
+
+  items.forEach(item => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      const img = item.querySelector('img');
+      const src = item.getAttribute('href');
+      const title = item.getAttribute('data-title') || img.alt || '';
+
+      lightboxImg.src = src;
+      lightboxImg.alt = title;
+      lightboxCaption.textContent = title;
+
+      lightbox.classList.add('is-open');
+      document.body.style.overflow = 'hidden'; // блокируем прокрутку фона
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lightboxImg.src = '';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeLightbox();
+    }
+  });
+
+  // Скрипт года в футере (как было)
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
 <body>
 
 <header class="site-header">
