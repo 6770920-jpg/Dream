@@ -1,148 +1,295 @@
-<script>
-document.addEventListener('DOMContentLoaded', () => {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DREAM — Art Gallery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-  // Элементы лайтбокса
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-image');
-  const lightboxCaption = document.getElementById('lightbox-caption');
-  const closeBtn = document.getElementById('lightbox-close');
-  const prevBtn = document.getElementById('lightbox-prev');
-  const nextBtn = document.getElementById('lightbox-next');
+  <!-- ЛАЙТБОКС -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
 
-  // Галерея
-  const items = Array.from(document.querySelectorAll('.gallery-item'));
-  let currentIndex = 0;
+      <!-- Стрелки навигации -->
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
 
-  // Открытие
-  function openLightbox(index) {
-    currentIndex = index;
-    showImage(currentIndex);
-    lightbox.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
+      <img id="lightbox-image" alt="">
+      <p id="lightbox-caption"></p>
+    </div>
+  </div>
 
-  // === ГЛАВНАЯ ЛОГИКА ===
-  function showImage(index) {
-    const item = items[index];
-    if (!item) return;
+  <!-- ШАПКА -->
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="logo">DREAM</h1>
+      <p class="subtitle">Online art gallery exploring mood, silence, and form.</p>
+    </div>
+  </header>
 
-    const img = item.querySelector('img');
+  <main>
+    <!-- ABOUT -->
+    <section class="about">
+      <h2>About the artist</h2>
+      <p>
+        This collection focuses on quiet emotions, soft light, and the spaces
+        between movement and stillness. Each piece invites you to slow down,
+        breathe, and stay with the image a little longer.
+      </p>
+    </section>
 
-    // имя файла (IMG_8167.jpeg и т.д.)
-    const pageSrc = img.getAttribute('src');
-    const fileName = pageSrc.split('/').pop();
+    <!-- ГАЛЕРЕЯ -->
+    <section class="gallery-section">
+      <h2>Gallery</h2>
 
-    // папка = номер картинки + 1
-    const folderNumber = index + 1;
+      <div class="gallery">
+        <figure class="gallery-item" data-title="Large Venice / Trattoria Painting – Oil on Canvas, Vintage Frame and COA. Signed. 56x44">
+          <a href="images/IMG_8167.jpeg">
+            <img src="images/IMG_8167.jpeg" alt="Large Venice / Trattoria Painting – Oil on Canvas, Vintage Frame and COA. Signed. 56x44">
+          </a>
+          <figcaption class="caption">
+            Large “Venice / Trattoria” Painting – Oil on Canvas, Vintage Frame and COA. Signed. 56x44”
+          </figcaption>
+        </figure>
 
-    // путь для лайтбокса
-    const lightboxSrc = `images/${folderNumber}/${fileName}`;
+        <figure class="gallery-item" data-title="Large Vintage Original Still Life Painting – Signed “Kenneth” – Framed Floral Artwork 34×46">
+          <a href="images/IMG_8348.jpeg">
+            <img src="images/IMG_8348.jpeg" alt="Large Vintage Original Still Life Painting – Signed “Kenneth” – Framed Floral Artwork 34×46">
+          </a>
+          <figcaption class="caption">
+            Large Vintage Original Still Life Painting – Signed “Kenneth” – Framed Floral Artwork 34”×46”
+          </figcaption>
+        </figure>
 
-    const title =
-      item.getAttribute('data-title') ||
-      img.getAttribute('alt') ||
-      '';
+        <figure class="gallery-item" data-title="Large Hand-Painted Impressionist Painting – Conservatory with Grand Piano, Size: 37×47">
+          <a href="images/IMG_8356.jpeg">
+            <img src="images/IMG_8356.jpeg" alt="Large Hand-Painted Impressionist Painting – Conservatory with Grand Piano, Size: 37×47">
+          </a>
+          <figcaption class="caption">
+            Large Hand-Painted Impressionist Painting – Conservatory with Grand Piano, 37”×47”
+          </figcaption>
+        </figure>
 
-    lightboxImg.src = lightboxSrc;
-    lightboxImg.alt = title;
-    lightboxCaption.textContent = title;
-  }
+        <figure class="gallery-item" data-title="Glynda Turley “Georgia Sweet” Signed &amp; Numbered Limited Edition – COA">
+          <a href="images/IMG_8364.jpeg">
+            <img src="images/IMG_8364.jpeg" alt="Glynda Turley “Georgia Sweet” Signed &amp; Numbered Limited Edition – COA">
+          </a>
+          <figcaption class="caption">
+            Glynda Turley “Georgia Sweet” Signed &amp; Numbered Limited Edition – COA
+          </figcaption>
+        </figure>
 
-  function showNext() {
-    currentIndex = (currentIndex + 1) % items.length;
-    showImage(currentIndex);
-  }
+        <figure class="gallery-item" data-title="John Matthew Moore Signed Limited Edition Botanical Tulip – 73/295">
+          <a href="images/IMG_8371.jpeg">
+            <img src="images/IMG_8371.jpeg" alt="John Matthew Moore Signed Limited Edition Botanical Tulip – 73/295">
+          </a>
+          <figcaption class="caption">
+            John Matthew Moore Signed Limited Edition Botanical Tulip – 73/295
+          </figcaption>
+        </figure>
 
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + items.length) % items.length;
-    showImage(currentIndex);
-  }
+        <figure class="gallery-item" data-title="Vintage Original Oil Painting – Rustic Cabin Landscape – Framed, Signed – 16.8×20.5">
+          <a href="images/IMG_8385.jpeg">
+            <img src="images/IMG_8385.jpeg" alt="Vintage Original Oil Painting – Rustic Cabin Landscape – Framed, Signed – 16.8×20.5">
+          </a>
+          <figcaption class="caption">
+            Vintage Original Oil Painting – Rustic Cabin Landscape – Framed, Signed – 16.8”×20.5”
+          </figcaption>
+        </figure>
 
-  // Клик по картинкам
-  items.forEach((item, index) => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
-      openLightbox(index);
+        <figure class="gallery-item" data-title="Impressionist Style Garden Scene Oil Painting – Women in White – Ornate Gilt Frame">
+          <a href="images/IMG_8392.jpeg">
+            <img src="images/IMG_8392.jpeg" alt="Impressionist Style Garden Scene Oil Painting – Women in White – Ornate Gilt Frame">
+          </a>
+          <figcaption class="caption">
+            Impressionist Style Garden Scene Oil Painting – Women in White – Ornate Gilt Frame
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-title="Light on the Wall">
+          <a href="images/IMG_8602.jpeg">
+            <img src="images/IMG_8602.jpeg" alt="Light on the Wall">
+          </a>
+          <figcaption class="caption">
+            Light on the Wall
+          </figcaption>
+        </figure>
+
+        <figure class="gallery-item" data-title="Where the Day Stopped">
+          <a href="images/IMG_8608.jpeg">
+            <img src="images/IMG_8608.jpeg" alt="Where the Day Stopped">
+          </a>
+          <figcaption class="caption">
+            Where the Day Stopped
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ -->
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>
+        For inquiries about original works, prints, or exhibitions, please get in touch:
+      </p>
+      <p class="contact-links">
+        <a href="mailto:6770920@gmail.com">6770920@gmail.com</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> DREAM Studio.</p>
+  </footer>
+
+  <!-- СКРИПТ: ЛАЙТБОКС + ЛИСТАНИЕ + СВАЙП + ГОД -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Элементы лайтбокса
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const closeBtn = document.getElementById('lightbox-close');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
+
+      // Галерея
+      const items = Array.from(document.querySelectorAll('.gallery-item'));
+      let currentIndex = 0;
+
+      function openLightbox(index) {
+        currentIndex = index;
+        showImage(currentIndex);
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function showImage(index) {
+        const item = items[index];
+        if (!item) return;
+
+        const link = item.querySelector('a');
+        const img = item.querySelector('img');
+
+        const src = link.getAttribute('href');
+        const title = item.getAttribute('data-title') || img.alt || '';
+
+        lightboxImg.src = src;
+        lightboxImg.alt = title;
+        lightboxCaption.textContent = title;
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % items.length;
+        showImage(currentIndex);
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        showImage(currentIndex);
+      }
+
+      // Клики по миниатюрам
+      items.forEach((item, index) => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          openLightbox(index);
+        });
+      });
+
+      // Кнопки навигации
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showNext();
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showPrev();
+        });
+      }
+
+      // Закрытие лайтбокса
+      function closeLightbox() {
+        lightbox.classList.remove('is-open');
+        document.body.style.overflow = '';
+        lightboxImg.src = '';
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeLightbox();
+        });
+      }
+
+      // Клик по фону
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      // Клавиатура
+      document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('is-open')) return;
+
+        if (e.key === 'Escape') {
+          closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+          showNext();
+        } else if (e.key === 'ArrowLeft') {
+          showPrev();
+        }
+      });
+
+      // Свайп на телефоне
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      function handleGesture() {
+        const dx = touchEndX - touchStartX;
+        if (Math.abs(dx) < 40) return;
+
+        if (dx < 0) {
+          showNext();
+        } else {
+          showPrev();
+        }
+      }
+
+      const swipeArea = lightboxImg;
+
+      swipeArea.addEventListener('touchstart', (e) => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (!e.touches || !e.touches.length) return;
+        touchStartX = e.touches[0].clientX;
+        touchEndX = touchStartX;
+      }, { passive: true });
+
+      swipeArea.addEventListener('touchmove', (e) => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (!e.touches || !e.touches.length) return;
+        touchEndX = e.touches[0].clientX;
+      }, { passive: true });
+
+      swipeArea.addEventListener('touchend', () => {
+        if (!lightbox.classList.contains('is-open')) return;
+        handleGesture();
+      });
+
+      // Год в футере
+      const yearEl = document.getElementById('year');
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
     });
-  });
-
-  // Кнопки
-  if (nextBtn) {
-    nextBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      showNext();
-    });
-  }
-
-  if (prevBtn) {
-    prevBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      showPrev();
-    });
-  }
-
-  // Закрытие
-  function closeLightbox() {
-    lightbox.classList.remove('is-open');
-    document.body.style.overflow = '';
-    lightboxImg.src = '';
-  }
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      closeLightbox();
-    });
-  }
-
-  lightbox.addEventListener('click', (e) => {
-    if (e.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  // Клавиатура
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('is-open')) return;
-
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') showNext();
-    if (e.key === 'ArrowLeft') showPrev();
-  });
-
-  // Свайп
-  let touchStartX = 0;
-  let touchEndX = 0;
-
-  function handleGesture() {
-    const dx = touchEndX - touchStartX;
-    if (Math.abs(dx) < 40) return;
-    dx < 0 ? showNext() : showPrev();
-  }
-
-  const swipeArea = lightboxImg;
-
-  swipeArea.addEventListener('touchstart', (e) => {
-    if (!lightbox.classList.contains('is-open')) return;
-    touchStartX = e.touches[0].clientX;
-    touchEndX = touchStartX;
-  }, { passive: true });
-
-  swipeArea.addEventListener('touchmove', (e) => {
-    if (!lightbox.classList.contains('is-open')) return;
-    touchEndX = e.touches[0].clientX;
-  }, { passive: true });
-
-  swipeArea.addEventListener('touchend', () => {
-    if (!lightbox.classList.contains('is-open')) return;
-    handleGesture();
-  });
-
-  // Год
-  const yearEl = document.getElementById('year');
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
-  }
-
-});
-</script>
+  </script>
+</body>
+</html>
