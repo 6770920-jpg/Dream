@@ -8,15 +8,21 @@
 </head>
 <body>
 
-  <!-- Лайтбокс ДОЛЖЕН быть внутри body -->
+  <!-- ЛАЙТБОКС -->
   <div class="lightbox" id="lightbox">
     <div class="lightbox-inner">
       <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+
+      <!-- Стрелки навигации -->
+      <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Previous image">&#10094;</button>
+      <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Next image">&#10095;</button>
+
       <img id="lightbox-image" alt="">
       <p id="lightbox-caption"></p>
     </div>
   </div>
 
+  <!-- ШАПКА -->
   <header class="site-header">
     <div class="header-inner">
       <h1 class="logo">DREAM</h1>
@@ -25,7 +31,7 @@
   </header>
 
   <main>
-    <!-- About -->
+    <!-- ABOUT -->
     <section class="about">
       <h2>About the artist</h2>
       <p>
@@ -35,7 +41,7 @@
       </p>
     </section>
 
-    <!-- Галерея -->
+    <!-- ГАЛЕРЕЯ -->
     <section class="gallery-section">
       <h2>Gallery</h2>
 
@@ -49,57 +55,57 @@
           </figcaption>
         </figure>
 
-        <figure class="gallery-item" data-title="Silent Room">
+        <figure class="gallery-item" data-title="Large Vintage Original Still Life Painting – Signed “Kenneth” – Framed Floral Artwork 34×46">
           <a href="images/IMG_8348.jpeg">
-            <img src="images/IMG_8348.jpeg" alt="Silent Room">
+            <img src="images/IMG_8348.jpeg" alt="Large Vintage Original Still Life Painting – Signed “Kenneth” – Framed Floral Artwork 34×46">
           </a>
           <figcaption class="caption">
-            Large Vintage Original Still Life Painting – Signed “Kenneth” – Framed Floral Artwork 34”x46” Offer
+            Large Vintage Original Still Life Painting – Signed “Kenneth” – Framed Floral Artwork 34”×46”
           </figcaption>
         </figure>
 
-        <figure class="gallery-item" data-title="Silent Room">
+        <figure class="gallery-item" data-title="Large Hand-Painted Impressionist Painting – Conservatory with Grand Piano, Size: 37×47">
           <a href="images/IMG_8356.jpeg">
-            <img src="images/IMG_8356.jpeg" alt="Silent Room">
+            <img src="images/IMG_8356.jpeg" alt="Large Hand-Painted Impressionist Painting – Conservatory with Grand Piano, Size: 37×47">
           </a>
           <figcaption class="caption">
-            Large Hand-Painted Impressionist Painting – Conservatory with Grand Piano, Size: 37 x 47 “.
+            Large Hand-Painted Impressionist Painting – Conservatory with Grand Piano, 37”×47”
           </figcaption>
         </figure>
 
-        <figure class="gallery-item" data-title="Silent Room">
+        <figure class="gallery-item" data-title="Glynda Turley “Georgia Sweet” Signed &amp; Numbered Limited Edition – COA">
           <a href="images/IMG_8364.jpeg">
-            <img src="images/IMG_8364.jpeg" alt="Silent Room">
+            <img src="images/IMG_8364.jpeg" alt="Glynda Turley “Georgia Sweet” Signed &amp; Numbered Limited Edition – COA">
           </a>
           <figcaption class="caption">
-            Glynda Turley “Georgia Sweet” Signed & Numbered Limited Edition – COA.
+            Glynda Turley “Georgia Sweet” Signed &amp; Numbered Limited Edition – COA
           </figcaption>
         </figure>
 
-        <figure class="gallery-item" data-title="Silent Room">
+        <figure class="gallery-item" data-title="John Matthew Moore Signed Limited Edition Botanical Tulip – 73/295">
           <a href="images/IMG_8371.jpeg">
-            <img src="images/IMG_8371.jpeg" alt="Silent Room">
+            <img src="images/IMG_8371.jpeg" alt="John Matthew Moore Signed Limited Edition Botanical Tulip – 73/295">
           </a>
           <figcaption class="caption">
-            John Matthew Moore Signed Limited Edition Botanical Tulip – 73/295.
+            John Matthew Moore Signed Limited Edition Botanical Tulip – 73/295
           </figcaption>
         </figure>
 
-        <figure class="gallery-item" data-title="Silent Room">
+        <figure class="gallery-item" data-title="Vintage Original Oil Painting – Rustic Cabin Landscape – Framed, Signed – 16.8×20.5">
           <a href="images/IMG_8385.jpeg">
-            <img src="images/IMG_8385.jpeg" alt="Silent Room">
+            <img src="images/IMG_8385.jpeg" alt="Vintage Original Oil Painting – Rustic Cabin Landscape – Framed, Signed – 16.8×20.5">
           </a>
           <figcaption class="caption">
-            Vintage Original Oil Painting – Rustic Cabin Landscape – Framed, signed – 16.8” x 20.5”
+            Vintage Original Oil Painting – Rustic Cabin Landscape – Framed, Signed – 16.8”×20.5”
           </figcaption>
         </figure>
 
-        <figure class="gallery-item" data-title="Silent Room">
+        <figure class="gallery-item" data-title="Impressionist Style Garden Scene Oil Painting – Women in White – Ornate Gilt Frame">
           <a href="images/IMG_8392.jpeg">
-            <img src="images/IMG_8392.jpeg" alt="Silent Room">
+            <img src="images/IMG_8392.jpeg" alt="Impressionist Style Garden Scene Oil Painting – Women in White – Ornate Gilt Frame">
           </a>
           <figcaption class="caption">
-            Impressionist Style Garden Scene Oil Painting – Women in White – Ornate Gilt Frame.
+            Impressionist Style Garden Scene Oil Painting – Women in White – Ornate Gilt Frame
           </figcaption>
         </figure>
 
@@ -123,7 +129,7 @@
       </div>
     </section>
 
-    <!-- Контакты -->
+    <!-- КОНТАКТЫ -->
     <section class="contact">
       <h2>Contact</h2>
       <p>
@@ -139,52 +145,143 @@
     <p>© <span id="year"></span> DREAM Studio.</p>
   </footer>
 
-  <!-- СКРИПТ СТАВИМ В КОНЦЕ, когда всё уже в DOM -->
+  <!-- СКРИПТ: ЛАЙТБОКС + ЛИСТАНИЕ + СВАЙП + ГОД -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Лайтбокс
+      // Элементы лайтбокса
       const lightbox = document.getElementById('lightbox');
       const lightboxImg = document.getElementById('lightbox-image');
       const lightboxCaption = document.getElementById('lightbox-caption');
       const closeBtn = document.getElementById('lightbox-close');
+      const prevBtn = document.getElementById('lightbox-prev');
+      const nextBtn = document.getElementById('lightbox-next');
 
-      const items = document.querySelectorAll('.gallery-item');
+      // Галерея
+      const items = Array.from(document.querySelectorAll('.gallery-item'));
+      let currentIndex = 0;
 
-      items.forEach(item => {
+      function openLightbox(index) {
+        currentIndex = index;
+        showImage(currentIndex);
+        lightbox.classList.add('is-open');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function showImage(index) {
+        const item = items[index];
+        if (!item) return;
+
+        const link = item.querySelector('a');
+        const img = item.querySelector('img');
+
+        const src = link.getAttribute('href');
+        const title = item.getAttribute('data-title') || img.alt || '';
+
+        lightboxImg.src = src;
+        lightboxImg.alt = title;
+        lightboxCaption.textContent = title;
+      }
+
+      function showNext() {
+        currentIndex = (currentIndex + 1) % items.length;
+        showImage(currentIndex);
+      }
+
+      function showPrev() {
+        currentIndex = (currentIndex - 1 + items.length) % items.length;
+        showImage(currentIndex);
+      }
+
+      // Клики по миниатюрам
+      items.forEach((item, index) => {
         item.addEventListener('click', (e) => {
           e.preventDefault();
-          const img = item.querySelector('img');
-          const link = item.querySelector('a');
-          const src = link.getAttribute('href');              // ✅ берём href у <a>
-          const title = item.getAttribute('data-title') || img.alt || '';
-
-          lightboxImg.src = src;
-          lightboxImg.alt = title;
-          lightboxCaption.textContent = title;
-
-          lightbox.classList.add('is-open');
-          document.body.style.overflow = 'hidden'; // блокируем прокрутку фона
+          openLightbox(index);
         });
       });
 
+      // Кнопки навигации
+      if (nextBtn) {
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showNext();
+        });
+      }
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          showPrev();
+        });
+      }
+
+      // Закрытие лайтбокса
       function closeLightbox() {
         lightbox.classList.remove('is-open');
         document.body.style.overflow = '';
         lightboxImg.src = '';
       }
 
-      closeBtn.addEventListener('click', closeLightbox);
+      if (closeBtn) {
+        closeBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          closeLightbox();
+        });
+      }
 
+      // Клик по фону
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) {
           closeLightbox();
         }
       });
 
+      // Клавиатура
       document.addEventListener('keydown', (e) => {
+        if (!lightbox.classList.contains('is-open')) return;
+
         if (e.key === 'Escape') {
           closeLightbox();
+        } else if (e.key === 'ArrowRight') {
+          showNext();
+        } else if (e.key === 'ArrowLeft') {
+          showPrev();
         }
+      });
+
+      // Свайп на телефоне
+      let touchStartX = 0;
+      let touchEndX = 0;
+
+      function handleGesture() {
+        const dx = touchEndX - touchStartX;
+        if (Math.abs(dx) < 40) return;
+
+        if (dx < 0) {
+          showNext();
+        } else {
+          showPrev();
+        }
+      }
+
+      const swipeArea = lightboxImg;
+
+      swipeArea.addEventListener('touchstart', (e) => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (!e.touches || !e.touches.length) return;
+        touchStartX = e.touches[0].clientX;
+        touchEndX = touchStartX;
+      }, { passive: true });
+
+      swipeArea.addEventListener('touchmove', (e) => {
+        if (!lightbox.classList.contains('is-open')) return;
+        if (!e.touches || !e.touches.length) return;
+        touchEndX = e.touches[0].clientX;
+      }, { passive: true });
+
+      swipeArea.addEventListener('touchend', () => {
+        if (!lightbox.classList.contains('is-open')) return;
+        handleGesture();
       });
 
       // Год в футере
